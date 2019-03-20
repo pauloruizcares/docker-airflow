@@ -4,7 +4,7 @@
 # BUILD: docker build --rm -t puckel/docker-airflow .
 # SOURCE: https://github.com/puckel/docker-airflow
 
-FROM python:3.6-slim
+FROM ubuntu
 LABEL maintainer="Puckel_"
 
 # Never prompts the user for choices on installation/configuration of packages
@@ -37,6 +37,7 @@ RUN set -ex \
     ' \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
+    && apt-get install -y python python-dev python-pip python-virtualenv \
     && apt-get install -yqq --no-install-recommends \
         $buildDeps \
         freetds-bin \
