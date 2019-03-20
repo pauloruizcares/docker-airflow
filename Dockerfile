@@ -35,9 +35,9 @@ RUN set -ex \
         libpq-dev \
         git \
     ' \
+    && apt-get install -y python python-dev python-pip python-virtualenv \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
-    && apt-get install -y python python-dev python-pip python-virtualenv \
     && apt-get install -yqq --no-install-recommends \
         $buildDeps \
         freetds-bin \
