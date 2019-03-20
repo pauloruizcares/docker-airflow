@@ -4,7 +4,7 @@
 # BUILD: docker build --rm -t puckel/docker-airflow .
 # SOURCE: https://github.com/puckel/docker-airflow
 
-FROM ubuntu
+FROM python:3.7-alpine
 LABEL maintainer="Puckel_"
 
 # Never prompts the user for choices on installation/configuration of packages
@@ -35,7 +35,6 @@ RUN set -ex \
         libpq-dev \
         git \
     ' \
-    && apt-get install -y python python-dev python-pip python-virtualenv \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
     && apt-get install -yqq --no-install-recommends \
